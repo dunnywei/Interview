@@ -20,7 +20,9 @@ size_t getline(char **lineptr, size_t *n, FILE *stream)
     int c=0;
     printf("enter you number\n");
     scanf("%d %d %d",&a,&b,&c);
-    printf("a is %d, b is %d c is %d \n",a,b,c); 
+    //printf("a is %d, b is %d c is %d \n",a,b,c); 
+    sprintf((*lineptr),"%d %d %d",a,b,c);
+    printf("lineptr is %s", *lineptr);
     return -1;    
 }
 
