@@ -8,22 +8,26 @@ int main() {
     size_t maxLineLen = 1024;
     char *line = (char*)malloc(maxLineLen);
     while(getline(&line, &maxLineLen, stdin) != -1) {
-        printf("%s \n", line);
+        printf("%s ", line);
     }
 }
 
 
 size_t getline(char **lineptr, size_t *n, FILE *stream)
 {
-    int a=0;
-    int b=0;
-    int c=0;
-    printf("enter you number\n");
-    scanf("%d %d %d",&a,&b,&c);
-    //printf("a is %d, b is %d c is %d \n",a,b,c); 
-    sprintf(*lineptr,"%d %d %d",a,b,c);
-    //printf("lineptr is %s", *lineptr);
-    //return -1;    
+    
+    if(lineptr==NULL || n==NULL)
+    {
+        return -1;
+    }
+    if(ferror(stream))
+        return -1;
+    if(feof(stream))
+        return -1;
+     
+    fgets(*lineptr,1024,stream);
+    
+    return -1;
 }
 
 
